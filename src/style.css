@@ -1,0 +1,28 @@
+:root {
+    font-family: Verdana, sans-serif;
+    background-color: black;
+    color: bisque;
+}
+
+.navul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.navul > li {
+    float: left;
+}
+
+li a {
+    display: block;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+    color: antiquewhite;
+}
+
+li a:hover {
+    background-color: dimgray;
+}
