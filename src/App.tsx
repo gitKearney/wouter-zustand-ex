@@ -13,8 +13,6 @@ function App() {
   const getToken = useUserStore((state) => state.getToken);
   const [location] = useLocation();
 
-  console.log("at home route:", location);
-
   useEffect(() => {
     getToken();
     // eslint-disable-next-line react-hooks/exhaustive-deps

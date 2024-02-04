@@ -2,6 +2,7 @@ import { createRef, useEffect, useState } from "react";
 import { validateLogin } from "../libs/validateLogin.js";
 import { useLocation } from "wouter";
 import { useUserStore } from "../store/userStore.ts";
+import { getRedirectedFrom } from "../store/redirectStore.ts";
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -42,6 +43,11 @@ function Login() {
         saveUserInfo(user);
       }
 
+      const goto = getRedirectedFrom();
+      if (goto) {
+        setLocation(goto);
+        return;
+      }
       setLocation("/home");
     } catch (err) {
       console.log("auth failed!");

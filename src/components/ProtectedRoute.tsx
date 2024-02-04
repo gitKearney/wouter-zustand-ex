@@ -1,10 +1,16 @@
-import { Redirect, RouteProps, useRoute } from "wouter";
+import { Redirect, RouteProps, useLocation, useRoute } from "wouter";
 import { createElement } from "react";
+import { setRedirectedFrom } from "../store/redirectStore";
 
 export function ProtectedRoute(props: RouteProps) {
+  const [location] = useLocation();
+
+  console.log(`location is ${location}, checking to see if token exists`);
+
   const { path, component, children } = props;
   const token = localStorage.getItem("token"); // save to store and read props
   if (!token) {
+    setRedirectedFrom(location);
     return <Redirect to="/login" />;
   }
 
